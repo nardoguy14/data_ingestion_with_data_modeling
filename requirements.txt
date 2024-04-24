@@ -4,7 +4,9 @@ pandas
 pika
 psycopg2-binary
 python-multipart
+pytest
 requests
 sqlalchemy
+tenacity
 uvicorn
 openpyxl

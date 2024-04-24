@@ -43,6 +43,7 @@ export POSTGRES_USER=postgres_user
 export POSTGRES_PASSWORD=postgres_password
 ```
 Preferably you should shave this to your `~/.bash_profile` or `~/.zshrc` file. 
+
 # Running
 
 This project uses `make` to do the heavy lifting 
@@ -77,6 +78,7 @@ make run_with_data_load
 
 # Testing
 
+## dbt
 Testing is done on the data models themselves by utilizing dbt tests. We test at the time dbt container is ran
 by performing `dbt test` as part of the make file. The things we test for are uniqueness of certain fields in
 the data models as well as `accepted values` for certain columns. We also validate `data type`'s to be sure they
@@ -84,6 +86,15 @@ are of the type we desire.
 
 You are also able to validate the desired models by loading the dbt docs located at http://localhost:8080 after 
 running running the service, loading the data into the database, and running dbt to create the data models.
+
+## Ingestion Service
+
+You can run an end to end test by running the following make command.
+Be sure that the service is not currently running.
+
+```shell
+make run_ingestion_service_tests
+```
 
 # Design
 

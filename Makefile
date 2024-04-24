@@ -2,6 +2,18 @@ run_ingestion_service:
 	docker-compose down;
 	docker-compose build --no-cache; docker-compose up -d
 
+run_ingestion_service_tests:
+	make run_ingestion_service;
+	echo "Waiting for services to finish starting up";
+	sleep 15;
+	echo "Loading data into db"
+	make load_data;
+	echo "Running pytests";
+	pytest app/tests/*;
+	echo "Running pytests";
+	docker-compose down --volume;
+
+
 run_build_dbt:
 	dbt seed --project-dir  waymark --profiles-dir waymark;
 	dbt run --project-dir  waymark --profiles-dir waymark;
