@@ -9,6 +9,18 @@ files that are not loaded into a Postgres database by means of
 using dbt to generate both views and tables. This example further
 provides a viewpoint
 
+# Project Structure
+
+`/app` - FastAPI rest service for taking in files
+
+`/images` - Images used for README
+
+`/test_files` - Provided example test files to be loaded into ingestion service and used
+as base for data modeling
+
+`/waymark` - dbt project that contains data models and tests associated with transformed data
+ingested from postgres database
+
 # Dependencies
 
 You will need
