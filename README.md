@@ -51,21 +51,21 @@ of running the different needed services. To get a
 layout of how things get kicked off:
 
 1. make first runs the ingestion service, docker compose runs 4 different services
-   2. postgres database
-   3. a rabbitmq consumer
-   4. a rabbitmq broker instance
-   5. a fastapi server to take in files
-6. we then wait for 10 seconds or so for the services to all start up
-7. after waiting we run a script that is responsible for passing over
+   * postgres database
+   * rabbitmq consumer
+   * rabbitmq broker instance
+   * fastapi server to take in files
+2. we then wait for 10 seconds or so for the services to all start up
+3. after waiting we run a script that is responsible for passing over
    the files to REST service, it will ingest first set 1 of the files, 
    then set 2
-8. once the files have bene loaded into the postgres database its time
+4. once the files have bene loaded into the postgres database its time
    to start data modeling
-9. a dbt container instance is created seperate from the docker-compose containers,
+5. a dbt container instance is created seperate from the docker-compose containers,
    this container will
    * generate all the data models and materializations we expect
    * serve up documentation on an open port for users to visit at http://localhost:8080
-10. the example is finished, if you want to run it again you should start from a clean state,
+6. the example is finished, if you want to run it again you should start from a clean state,
     delete the existing volumes for docker, especially the postgres one 
     if you rather not start from a clean slate you can run `make run_without_data_load` to skip
     the dataload step so that you dont overload the same data onto the database
