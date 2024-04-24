@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  restful_apisss:
+    build:
+      context: .
+      dockerfile: Dockerfile-restful-apis
+    volumes:
+      - ./uploaded-files:/uploaded-files
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - rabbitmq
+      - postgres
+    networks:
+      - mynetwork
+
+  postgres:
+    image: "postgres:13"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - mynetwork
+
+  worker:
+    image: python:3.9
+    build:
+      context: .
+      dockerfile: Dockerfile-rabbitmq-consumer
+    volumes:
+      - ./uploaded-files:/uploaded-files
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - rabbitmq
+      - postgres
+    networks:
+      - mynetwork
+
+
+networks:
+  mynetwork:
+    driver: bridge

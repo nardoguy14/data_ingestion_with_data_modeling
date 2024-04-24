@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: patient_membership
+    description: |
+      Combined normalized patient memberships from different clients. 
+      Each row is also identifiable by the client they belong to.
+    tests:
+      - unique:
+          column_name: member_id
+      - data_type:
+          table_name: patient_membership
+          column_name: membership_end_date
+          desired: 'timestamp without time zone'
+      - data_type:
+          table_name: patient_membership
+          column_name: dob
+          desired: date

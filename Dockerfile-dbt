@@ -1,0 +1,22 @@
+FROM python:3.9
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV POSTGRES_HOST=${POSTGRES_HOST}
+ENV POSTGRES_DB=${POSTGRES_DB}
+ENV POSTGRES_USER=${POSTGRES_USER}
+ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+
+WORKDIR /waymark
+
+COPY requirements.txt /waymark/
+COPY Makefile /
+COPY /waymark /waymark
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+WORKDIR /
+EXPOSE 8080:8080
+
+CMD make run_build_dbt && make run_docs_dbt

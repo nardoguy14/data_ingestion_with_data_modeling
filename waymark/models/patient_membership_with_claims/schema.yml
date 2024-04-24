@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: patient_membership_with_claims
+    description: |
+      Joined member_id to claims data. Due to member ids possibly being
+      shared between clients we are sure to only join claims data back to
+      the member_id AND client.

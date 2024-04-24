@@ -1,0 +1,10 @@
+dbt-postgres
+fastapi
+pandas
+pika
+psycopg2-binary
+python-multipart
+requests
+sqlalchemy
+uvicorn
+openpyxl

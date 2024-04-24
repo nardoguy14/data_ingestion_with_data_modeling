@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: patient_claims
+    description: |
+      Combined and normalized patient claims data from multiple clients.
+    columns:
+      - name: claim_number
+      - name: member_id
+    tests:
+      - unique_two_fields:
+          column_name: claim_number
+          column_name2: member_id
+      - data_type:
+          table_name: patient_claims
+          column_name: date_received
+          desired: 'timestamp without time zone'
+      - data_type:
+          table_name: patient_claims
+          column_name: member_id
+          desired: 'text'

@@ -1,0 +1,14 @@
+version: 2
+
+
+models:
+  - name: patient_claims_client_A_cleaned_data
+    description: |
+      Claims data ingested from the format of client A
+
+sources:
+  - name: client_A_claims_source
+    database: postgresdb
+    schema: export
+    tables:
+      - name: patient_claims_clientA

@@ -1,0 +1,47 @@
+
+version: 2
+
+models:
+  - name: patient_membership_client_A_common_format_dates
+    description: |
+      First point of ingestion of model that was imported to db by ingestion service.
+      We have a series of different date formats that we need to deal with and convert
+      to the appropriate date needed.
+    columns:
+      - name: member id
+        description: Member id in format of ingested file
+      - name: member first name
+        description: Member first name in format of ingested file
+      - name: member middle name
+        description: Member middle name in format of ingested file
+      - name: member last name
+        description: Member last name in format of ingested file
+      - name: gender
+        description: Gender of individual
+      - name: date of birth
+        description: DoB of individal normalized from a variety of different formats
+      - name: address
+        description: Address in format of ingested
+# TO-DO: finish column documentation, not enough time in interview take home
+  - name: patient_membership_client_A_cleaned_data
+    description: |
+      Model that contains normalized column fields to what we will work with going forward.
+    columns:
+      - name: member_id
+        # TO-DO more columns to finish at a later point
+  - name: patient_membership_client_A_latest_members_only
+    description: |
+      Reducing set of patients to only entries with latest end date for patient eligibility.
+
+sources:
+  - name: client_A_patient_source
+    database: postgresdb
+    schema: export
+    tables:
+      - name: patient_registration_clientA
+  - name: seeds
+    database: postgresdb
+    schema: public
+    tables:
+      - name: states
+      - name: zips

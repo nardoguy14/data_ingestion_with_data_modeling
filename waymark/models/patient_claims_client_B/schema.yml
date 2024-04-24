@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: patient_claims_client_B_cleaned_data
+    description: |
+      Claims data as ingested from the format of client B
+    columns:
+      - name: claim_number
+      - name: member_id
+
+sources:
+  - name: client_B_claims_source
+    database: postgresdb
+    schema: export
+    tables:
+      - name: patient_claims_clientB

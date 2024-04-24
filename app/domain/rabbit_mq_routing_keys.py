@@ -1,0 +1,6 @@
+from enum import Enum
+
+
+class RabbitmqRoutingKeys(Enum):
+    CREATE_PATIENT_MEMBERSHIP = "CREATE_PATIENT_MEMBERSHIP"
+    CREATE_PATIENT_CLAIMS = "CREATE_PATIENT_CLAIMS"
