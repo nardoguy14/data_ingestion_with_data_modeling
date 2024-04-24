@@ -174,7 +174,11 @@ There are some things in the requirements that weren't described to well. For in
 `b. Validate demographic, contact information` was a bit broad. I cleaned up certain things
 like invalid zip codes, invalid states, invalid dates, but I'm not sure what other kidns of
 validation was required here. I think this could have been made more explicit as to what they
-want cleaned up.
+want cleaned up. There was also ambiguity in the requirement outlined as `c. Patient must have records of membership 
+status change`. This could mean to show the status change if a new record is ingested that shows a
+later `membership_end_date`. We do that in this example. However if the goal is to show status changes
+of active to inactive to active we'd need more information such as dates when the member became active
+or when a new file was ingested to make them `active` again. 
 
 ## If given opportunities, what would you have done to improve your solutions?
 
