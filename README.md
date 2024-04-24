@@ -5,9 +5,9 @@ data models utilizing a scalable ingestion service utilizing
 docker-compose, docker containers, fastAPI, RabbitMQ, and a 
 Postgres Database for the ingestion part. The materlization 
 of the data models is then performed upon ingested csv or excel
-files that are not loaded into a Postgres database by means of
+files that are now loaded into a Postgres database by means of
 using dbt to generate both views and tables. This example further
-provides a viewpoint
+provides a viewpoint to see these models at http://localhost:8080
 
 # Project Structure
 
