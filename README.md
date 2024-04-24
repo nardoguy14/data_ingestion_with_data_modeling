@@ -23,7 +23,9 @@ This project requires you setup some environment variables for Postgres
 prior to running. Here is an example of those credentials:
 
 ```shell
-export POSTGRES_HOST=postgres
+export POSTGRES_HOST=docker.for.mac.localhost
+#or use window if on windows
+#export POSTGRES_HOST=docker.for.win.localhost
 export POSTGRES_DB=postgresdb
 export POSTGRES_USER=postgres_user
 export POSTGRES_PASSWORD=postgres_password

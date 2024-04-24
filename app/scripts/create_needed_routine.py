@@ -13,7 +13,7 @@ db_params = {
     'dbname': database_name,
     'user': username,
     'password': password,
-    'host': 'docker.for.mac.localhost',
+    'host': host,
     'port': '5432'
 }
 

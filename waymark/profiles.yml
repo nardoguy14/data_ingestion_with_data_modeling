@@ -4,7 +4,7 @@ waymark:
   outputs:
     dev:
       type: postgres
-      host: 'docker.for.mac.localhost'
+      host: "{{ env_var('POSTGRES_HOST') }}"
       schema: public
       port: 5432
       user: "{{ env_var('POSTGRES_USER') }}"
