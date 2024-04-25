@@ -34,7 +34,7 @@ run_docker_dbt:
 	docker logs -f dbt_job_and_docs
 
 load_data:
-	python ./test_files/upload_files_script.py; \
+	python3 ./test_files/upload_files_script.py; \
 
 setup_env:
 	python3 -m venv .venv; \
