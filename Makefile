@@ -34,7 +34,6 @@ run_docker_dbt:
 	docker logs -f dbt_job_and_docs
 
 load_data:
-	pip3 install requests; \
 	python ./test_files/upload_files_script.py; \
 
 setup_env:
