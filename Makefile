@@ -34,6 +34,7 @@ run_docker_dbt:
 	docker logs -f dbt_job_and_docs
 
 load_data:
+	. .venv/bin/activate; \
 	python3 ./test_files/upload_files_script.py; \
 
 setup_env:
@@ -44,8 +45,8 @@ setup_env:
 run_with_data_load:
 	make setup_env; \
 	make run_ingestion_service; \
-	echo "Sleeping for 10 seconds to let services come up"; \
-	sleep 15; \
+	echo "Sleeping for 15 seconds to let services come up"; \
+	sleep 20; \
 	echo "Starting API calls for sending files to ingestion service"; \
 	make load_data; \
 	echo "Starting container service to run dbt and start serving docs"; \
