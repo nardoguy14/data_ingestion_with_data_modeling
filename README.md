@@ -59,7 +59,7 @@ layout of how things get kicked off:
 3. after waiting we run a script that is responsible for passing over
    the files to REST service, it will ingest first set 1 of the files, 
    then set 2
-4. once the files have bene loaded into the postgres database its time
+4. once the files have been loaded into the postgres database its time
    to start data modeling
 5. a dbt container instance is created seperate from the docker-compose containers,
    this container will
