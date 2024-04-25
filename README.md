@@ -61,7 +61,7 @@ layout of how things get kicked off:
    then set 2
 4. once the files have been loaded into the postgres database its time
    to start data modeling
-5. a dbt container instance is created seperate from the docker-compose containers,
+5. a dbt container instance is created separate from the docker-compose containers,
    this container will
    * generate all the data models and materializations we expect
    * serve up documentation on an open port for users to visit at http://localhost:8080
