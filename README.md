@@ -85,7 +85,7 @@ the data models as well as `accepted values` for certain columns. We also valida
 are of the type we desire. 
 
 You are also able to validate the desired models by loading the dbt docs located at http://localhost:8080 after 
-running running the service, loading the data into the database, and running dbt to create the data models.
+running the service, loading the data into the database, and running dbt to create the data models.
 
 ## Ingestion Service
 
