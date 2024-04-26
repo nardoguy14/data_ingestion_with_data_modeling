@@ -23,7 +23,8 @@ def handle_upload(files, set_num):
         else:
             url = patient_registration_url
         req=[
-            ('file',(file,open(f'./test_files/{set_num}/{file}','rb'),
+            ('file',
+             (file,open(f'./test_files/{set_num}/{file}','rb'),
                      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
         ]
         response = requests.request("POST", url, files=req)
