@@ -1,7 +1,7 @@
 # About
 
 This project is an example of how to materialize different
-data models utilizing a scalable ingestion service utilizing
+data models utilizing a scalable ingestion service with
 docker-compose, docker containers, fastAPI, RabbitMQ, and a 
 Postgres Database for the ingestion part. The materlization 
 of the data models is then performed upon ingested csv or excel
